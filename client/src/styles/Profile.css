@@ -1,0 +1,77 @@
+.profile-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px; 
+    width: 90%; 
+    background-color: rgba(26, 26, 46, 0.2); 
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-info input,
+.profile-info select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.profile-info textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.profile-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.profile-actions .save-button {
+    background-color: #007bff;
+}
+
+.profile-actions .save-button:hover {
+    background-color: #0056b3;
+}
+
+.profile-actions .cancel-button {
+    background-color: #dc3545;
+}
+
+.profile-actions .cancel-button:hover {
+    background-color: #e01025;
+}

@@ -1,0 +1,155 @@
+.dashboard-container {
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-width: 1500px;
+    width: 100%;
+    background-color: rgba(26, 26, 46, 0.2);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.generate-button {
+    display: block;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+
+}
+.generat-button {
+    display: block;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+
+}
+
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 10px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.offers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+
+}
+
+.offers-table th,
+.offers-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: rgba(26, 26, 46, 0.2);
+    color: #ffffff;
+    text-align: left;
+}
+
+.offers-table th {
+    background-color: #0f3460;
+}
+
+.offers-table tr {
+    transition: background-color 0.3s;
+}
+
+.offers-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.actions-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.pdf-link-text {
+    margin-right: 10px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  .pagination-button {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    color: #422800;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    background-color: #fff;
+  }
+  
+  .pagination-button:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  .current-page {
+    background-color: #7873f5;
+    color: #ffffff;
+  }

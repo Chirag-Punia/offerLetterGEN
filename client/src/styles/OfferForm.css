@@ -1,0 +1,85 @@
+.offer-form-container {
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px; 
+    width: 50%; 
+    background-color: rgba(26, 26, 46, 0.2);
+    color: #ffffff; 
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.offer-form-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.offer-form {
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 10px; 
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #ffffff; 
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+input[type="date"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(26, 26, 46, 0.2);
+    color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus,
+input[type="date"]:focus,
+input[type="email"]:focus { 
+    outline: none;
+    border-color: #007bff;
+}
+
+button.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #0f3460;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px; 
+}
+
+button.submit-button:hover {
+    background-color: #0d2e4a;
+}

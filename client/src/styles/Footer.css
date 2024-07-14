@@ -1,0 +1,29 @@
+.home-page-footer {
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.footer-text {
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .header-container,
+    .main-container,
+    .footer-container {
+        width: 100%;
+        padding: 0 20px;
+    }
+}

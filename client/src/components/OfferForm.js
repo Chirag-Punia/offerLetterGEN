@@ -38,17 +38,16 @@ const OfferForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("token"); 
+    const token = localStorage.getItem("token");
 
     axios
       .post("https://offerlettergen.onrender.com/api/offers", formData, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         if (response.data.msg === "Created") {
-
           toast.success("Successfully Generated");
         } else {
           toast.error("ERROR");
@@ -177,19 +176,36 @@ const OfferForm = () => {
             />
           </div>
         </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="position">Position</label>
-            <input
-              type="text"
-              id="position"
-              name="position"
-              value={formData.position}
-              onChange={handleChange}
-              required
-            />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="position">Position</label>
+            <select id="position" name="position" required>
+              <option value="Machine Learning">Machine Learning</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Artificial Intelligence">
+                Artificial Intelligence
+              </option>
+              <option value="Web Developer">Web Developer</option>
+              <option value="Fundraising Coordinator">
+                Fundraising Coordinator
+              </option>
+              <option value="Volunteer">Volunteer</option>
+              <option value="Coding Tutor">Coding Tutor</option>
+              <option value="Human Resource Management">
+                Human Resource Management
+              </option>
+              <option value="Social Media Marketing">
+                Social Media Marketing
+              </option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Business Development Associate">
+                Business Development Associate
+              </option>
+              <option value="Content Writer">Content Writer</option>
+            </select>
           </div>
         </div>
+
         <button type="submit" className="submit-button">
           Generate Offer Letter
         </button>

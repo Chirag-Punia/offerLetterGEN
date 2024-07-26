@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 import OfferForm from "./OfferForm";
 import Profile from "./Profile";
 import DownloadButton from "./DownloadButton";
-import "../styles/DashBoard.css"; 
+import "../styles/DashBoard.css";
 
 const Dashboard = () => {
   const [offers, setOffers] = useState([]);
@@ -90,6 +90,10 @@ const Dashboard = () => {
     navigate(`/update-details/${uniqueId}`);
   };
 
+  const handleViewOfferLetter = (uniqueId) => {
+    navigate(`/view-offer/${uniqueId}`);
+  };
+
   const renderOffers = () =>
     paginatedOffers.map((offer) => (
       <Tr key={offer.uniqueId}>
@@ -113,6 +117,12 @@ const Dashboard = () => {
           >
             Update Details
           </Button>
+          <Button
+            className="button-74"
+            onClick={() => handleViewOfferLetter(offer.uniqueId)}
+          >
+            View
+          </Button>
           <DownloadButton
             name={offer.candidateName}
             position={offer.position}
@@ -124,7 +134,6 @@ const Dashboard = () => {
         </Td>
       </Tr>
     ));
-
 
   const totalPages = Math.ceil(offers.length / itemsPerPage);
 

@@ -13,9 +13,9 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import OfferLetter from "./OfferLetter";
 import UpdateDetails from "./UpdateDetails";
 import { useNavigate } from "react-router-dom";
+import ViewOffer from "./ViewOffer";
 
 function App() {
-  
   return (
     <RecoilRoot>
       <ToastContainer
@@ -65,19 +65,7 @@ function App() {
               </HomePage>
             }
           />
-          <Route
-            path="/test"
-            element={
-              <HomePage>
-                <PDFDownloadLink
-                  document={<OfferLetter name={"Chirag"} position={"sde"} />}
-                  fileName="OFFER-LETTER"
-                >
-                  <button>Download</button>
-                </PDFDownloadLink>
-              </HomePage>
-            }
-          />
+          <Route path="/view-offer/:uniqueId" element={<ViewOffer />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
@@ -108,7 +96,7 @@ const InitState = () => {
         }
       } catch (error) {
         console.error("Error initializing app:", error);
-        
+
         reactNavigator("/");
       }
     };

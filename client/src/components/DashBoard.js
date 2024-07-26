@@ -15,6 +15,7 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  Spinner,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +28,7 @@ const Dashboard = () => {
   const [offers, setOffers] = useState([]);
   const [showOfferForm, setShowOfferForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loadingId, setLoadingId] = useState(null); // Track the ID of the row currently loading
   const itemsPerPage = 5;
   const base_url = "https://offerlettergen.onrender.com";
   const navigate = useNavigate();
@@ -56,29 +58,29 @@ const Dashboard = () => {
   );
 
   const handleSendEmail = async (uniqueId) => {
+    setLoadingId(uniqueId); // Set the loading ID to show spinner
     try {
       const token = localStorage.getItem("token");
-      await axios
-        .post(
-          `${base_url}/auth/generate-and-send-pdf`,
-          { uniqueId },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((res) => {
-          if (res.data === "PDF generated and sent successfully!") {
-            toast.success("PDF generated and sent successfully!");
-          } else {
-            toast.error("Error sending email");
-          }
-        });
+      const response = await axios.post(
+        `${base_url}/auth/generate-and-send-pdf`,
+        { uniqueId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.data === "PDF generated and sent successfully!") {
+        toast.success("PDF generated and sent successfully!");
+      } else {
+        toast.error("Error sending email");
+      }
     } catch (error) {
       console.error("Error sending email:", error);
       toast.error("Error sending email");
+    } finally {
+      setLoadingId(null); // Reset loading ID to hide spinner
     }
   };
 
@@ -105,32 +107,38 @@ const Dashboard = () => {
         <Td>{new Date(offer.offerStartDate).toLocaleDateString()}</Td>
         <Td>{new Date(offer.offerEndDate).toLocaleDateString()}</Td>
         <Td className="actions-button">
-          <Button
-            className="button-74"
-            onClick={() => handleSendEmail(offer.uniqueId)}
-          >
-            Send Email
-          </Button>
-          <Button
-            className="button-74"
-            onClick={() => handleUpdateDetails(offer.uniqueId)}
-          >
-            Update Details
-          </Button>
-          <Button
-            className="button-74"
-            onClick={() => handleViewOfferLetter(offer.uniqueId)}
-          >
-            View
-          </Button>
-          <DownloadButton
-            name={offer.candidateName}
-            position={offer.position}
-            startDate={offer.offerStartDate}
-            uniqueId={offer.uniqueId}
-            offerType={offer.offerType}
-            endDate={offer.offerEndDate}
-          />
+          {loadingId === offer.uniqueId ? (
+            <Spinner size="sm" />
+          ) : (
+            <>
+              <Button
+                className="button-74"
+                onClick={() => handleSendEmail(offer.uniqueId)}
+              >
+                Send Email
+              </Button>
+              <Button
+                className="button-74"
+                onClick={() => handleUpdateDetails(offer.uniqueId)}
+              >
+                Update Details
+              </Button>
+              <Button
+                className="button-74"
+                onClick={() => handleViewOfferLetter(offer.uniqueId)}
+              >
+                View
+              </Button>
+              <DownloadButton
+                name={offer.candidateName}
+                position={offer.position}
+                startDate={offer.offerStartDate}
+                uniqueId={offer.uniqueId}
+                offerType={offer.offerType}
+                endDate={offer.offerEndDate}
+              />
+            </>
+          )}
         </Td>
       </Tr>
     ));

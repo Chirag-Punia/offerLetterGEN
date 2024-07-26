@@ -134,15 +134,28 @@ const UpdateDetails = () => {
               onChange={handleChange}
             />
           </label>
-          <label>
-            Position:
-            <input
-              type="text"
-              name="position"
-              value={formData.position}
-              onChange={handleChange}
-            />
-          </label>
+          <label htmlFor="position">Position</label>
+        <select
+          id="position"
+          name="position"
+          value={formData.position}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Choose Internship Domain</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="Fundraising Coordinator">Fundraising Coordinator</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="Coding Tutor">Coding Tutor</option>
+          <option value="Human Resource Management">Human Resource Management</option>
+          <option value="Social Media Marketing">Social Media Marketing</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="Business Development Associate">Business Development Associate</option>
+          <option value="Content Writer">Content Writer</option>
+        </select>
           <label>
             Email:
             <input

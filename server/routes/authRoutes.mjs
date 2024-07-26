@@ -30,19 +30,16 @@ const transporter = nodemailer.createTransport({
 });
 
 router.post("/login", async (req, res) => {
-  
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
     console.log(user);
     if (user) {
-      
       if (password !== user.password) {
         res.json({ msg: "Wrong password" });
       } else {
-        
         const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1h" });
-        console.log(111)
+        console.log(111);
         res.json({ msg: "Login successfully", token });
       }
     } else {
@@ -158,7 +155,7 @@ router.put("/offers/:uniqueId", async (req, res) => {
 
 router.post("/generate-and-send-pdf", async (req, res) => {
   const { uniqueId } = req.body;
-  
+
   offers
     .findOne({ uniqueId })
     .then(async (offers) => {
@@ -250,6 +247,17 @@ router.post("/generate-and-send-pdf", async (req, res) => {
       }
     })
     .catch((err) => res.status(400).json({ error: err.message }));
+});
+
+router.get("/offers/:uniqueId", async (req, res) => {
+  const { uniqueId } = req.params;
+  const offer = await offers.find((o) => o.id === uniqueId);
+
+  if (!offer) {
+    return res.status(404).json({ message: "Offer not found" });
+  }
+
+  res.json(offer);
 });
 
 export default router;
